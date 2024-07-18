@@ -1,0 +1,34 @@
+Regulamentações(id_regulametação, data_da_implementação, orgão_regulador)
+
+Inserido(id_regulametação, id_localização)
+	id_regulametação referencia Regulamentações
+	id_localização referencia Localização
+
+Localização(id_localização, rua, cidade, estado)
+
+Fonte_de_Poluição(id_fonte, qtd_poluentes, id_localização)
+	id_localização referencia Localização
+
+Usa(id_metodoDeControle, id_fonte)
+	id_metodoDeControle referencia Método_Controle_de_Poluição
+	id_fonte referencia Fonte_de_Poluição
+
+Método_Controle_de_Poluição(id_metodoDeControle, desc_metodoDeControle)
+
+Possui(id_metodoDeControle, id_tipoPoluente)
+	id_metodoDeControle referencia Método_Controle_de_Poluição
+	id_tipoPoluente referencia Tipos_de_Poluição
+
+Tipos_de_Poluição(id_tipoPoluente, descrição, fontes_associadas)
+
+Medida(id_tipoPoluente, id_medição, data)
+	id_tipoPoluente referencia Tipos_de_Poluição
+	id_medição referencia Medições_de_Poluição
+
+Medições_de_Poluição(id_medição, nível_de_concentração)
+
+Usa(id_medição, id_método)
+	id_medição referencia Medições_de_Poluição
+	id_método referencia Método_de_Medição
+
+Método_de_Medição(id_método, descrição_método)

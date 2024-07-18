@@ -1,0 +1,70 @@
+insert into projbd.regulamentacoes(id, data, orgao_regulador) values (001, '22/05/2024', 'SAF');
+insert into projbd.regulamentacoes(id, data, orgao_regulador) values (002, '22/05/2024', 'SAS');
+insert into projbd.regulamentacoes(id, data, orgao_regulador) values (003, '22/05/2024', 'SHE');
+
+
+
+insert into projbd.localizacao(id, rua, cidade, estado) values (001, 'W3', 'asa sul','DF');
+insert into projbd.localizacao(id, rua, cidade, estado) values (002, 'W5', 'asa sul','DF');
+insert into projbd.localizacao(id, rua, cidade, estado) values (003, 'L2', 'asa sul','DF');
+
+
+
+insert into projbd.insercao(id_localizacao, id_regulamentacoes) values (001, 001);
+insert into projbd.insercao(id_localizacao, id_regulamentacoes) values (002, 002);
+insert into projbd.insercao(id_localizacao, id_regulamentacoes) values (003, 003);
+
+
+
+
+insert into projbd.fonte(id, qtd_poluentes, id_localizacao) values (001, 1, 001);
+insert into projbd.fonte(id, qtd_poluentes, id_localizacao) values (002, 2, 002);
+insert into projbd.fonte(id, qtd_poluentes, id_localizacao) values (003, 3, 003);
+
+
+
+
+insert into projbd.metodocontroledePoluicao(id, desc_metodoDeControle) values (001, 'tratamento biológico');
+insert into projbd.metodocontroledePoluicao(id, desc_metodoDeControle) values (002, 'filtros de ar');
+insert into projbd.metodocontroledePoluicao(id, desc_metodoDeControle) values (003, 'incineração de gás com chama direta');
+
+
+
+insert into projbd.usa(id_metodoDeControle, id_fonte) values (001, 001);
+insert into projbd.usa(id_metodoDeControle, id_fonte) values (002, 002);
+insert into projbd.usa(id_metodoDeControle, id_fonte) values (003, 003);
+
+
+insert into projbd.tiposDePoluicao(id, desc_Poluente, id_fonte) values (001, 'queimada', 001);
+insert into projbd.tiposDePoluicao(id, desc_Poluente, id_fonte) values (002, 'lixo doméstico', 002);
+insert into projbd.tiposDePoluicao(id, desc_Poluente, id_fonte) values (003, 'emissão de gases', 003);
+
+
+
+insert into projbd.possui(id_metodoDeControle, id_tipoPoluente) values (001, 001);
+insert into projbd.possui(id_metodoDeControle, id_tipoPoluente) values (002, 002);
+insert into projbd.possui(id_metodoDeControle, id_tipoPoluente) values (003, 003);
+
+
+
+insert into projbd.medicoesDePoluicao(id, nivel_concentração) values (001, 22);
+insert into projbd.medicoesDePoluicao(id, nivel_concentração) values (002, 4);
+insert into projbd.medicoesDePoluicao(id, nivel_concentração) values (003, 7);
+
+
+insert into projbd.medida(id_tipoPoluente, id_medicao, data) values (001, 001, '22/05/2024');
+insert into projbd.medida(id_tipoPoluente, id_medicao, data) values (002, 002, '22/05/2024');
+insert into projbd.medida(id_tipoPoluente, id_medicao, data) values (003, 003, '22/05/2024');
+
+
+
+insert into projbd.metodoDeMedicao(id, desc_metodo) values (001, 'mg/m3');
+insert into projbd.metodoDeMedicao(id, desc_metodo) values (002, 'mg/m3');
+insert into projbd.metodoDeMedicao(id, desc_metodo) values (003, 'mg/m3');
+
+
+
+
+insert into projbd.utiliza(id_medicao, id_metodo) values (001, 001);
+insert into projbd.utiliza(id_medicao, id_metodo) values (002, 002);
+insert into projbd.utiliza(id_medicao, id_metodo) values (003, 003);

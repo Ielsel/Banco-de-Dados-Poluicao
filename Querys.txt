@@ -1,0 +1,31 @@
+-- Manipulation data:
+--Add new line
+insert into projbd.localizacao(id, rua, cidade, estado) values (004, '13 Norte', 'Águas Claras','DF');
+
+--Update
+update projbd.localizacao 
+set rua = '14 Norte'
+where id = 4;
+
+--Delete
+delete from projbd.localizacao
+where id = 4;
+
+--Query involving 2 tables(Type of pollution street W3 using tables: "projbd.tiposDePoluicao" and "projbd.localizacao")
+select desc_poluente
+from projbd.tiposDePoluicao
+where id = (
+	select id
+	from projbd.localizacao
+	where rua = 'W3'
+	);
+
+--Query involving two tables using JOIN(Querying a street with more pollution)
+select projbd.localizacao.rua, projbd.fonte.qtd_poluentes
+from projbd.localizacao
+join projbd.fonte
+on projbd.localizacao.id = projbd.fonte.id_localizacao
+where qtd_poluentes = (
+	select max(qtd_poluentes) 
+	from projbd.fonte
+	);
